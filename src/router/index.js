@@ -6,6 +6,7 @@ import tabs from '@/components/tabs'
 import vuxTabs from '@/components/vuxTabs'
 import downloadImg from '@/components/downloadImg'
 import moveLeft from '@/components/moveLeft'
+import hover from '@/components/hover'
 Vue.use(Router)
 
 export default new Router({
@@ -40,6 +41,11 @@ export default new Router({
       path:'/moveLeft',
       name: 'moveLeft',
       component: moveLeft
+    },
+    {
+      path:'/hover',
+      name: 'hover',
+      component: hover
     },
   ]
 })
