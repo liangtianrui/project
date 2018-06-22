@@ -1,51 +1,77 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import myCanvas from '@/components/myCanvas'
-import tabs from '@/components/tabs'
-import vuxTabs from '@/components/vuxTabs'
-import downloadImg from '@/components/downloadImg'
-import moveLeft from '@/components/moveLeft'
-import hover from '@/components/hover'
+import pages from './pages'
+
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/vuxTabs',
-      name: 'vuxTabs',
-      component: vuxTabs
+      name: 'index',
+      component: pages.index,
+      meta: {
+        title: '首页'
+      }
     },
     {
       path: '/myCanvas',
       name: 'myCanvas',
-      component: myCanvas
+      component: pages.myCanvas,
+      meta: {
+        title: 'canvas刮奖'
+      }
     },
     {
-      path:'/tabs',
+      path: '/tabs',
       name: 'tabs',
-      component: tabs
+      component: pages.tabs,
+      meta: {
+        title: 'canvas下载图片'
+      }
     },
     {
-      path:'/downloadImg',
+      path: '/downloadImg',
       name: 'downloadImg',
-      component: downloadImg
+      component: pages.downloadImg,
+      meta: {
+        title: 'canvas下载图片'
+      }
     },
     {
-      path:'/moveLeft',
+      path: '/moveLeft',
       name: 'moveLeft',
-      component: moveLeft
+      component: pages.moveLeft,
+      meta: {
+        title: '匀速向左运动'
+      }
     },
     {
-      path:'/hover',
+      path: '/hover',
       name: 'hover',
-      component: hover
+      component: pages.hover,
+      meta: {
+        title: '鼠标悬停效果'
+      }
+    },
+    {
+      path: '/swiper',
+      name: 'swiper',
+      component: pages.swiper,
+      meta: {
+        title: '轮播图'
+      }
     },
   ]
 })
+
+router.beforeEach((to, from, next) => {
+
+  if (to.matched.some(res => res.meta.title)) {
+    document.title = to.meta.title
+  }
+  next()
+})
+
+export default router
