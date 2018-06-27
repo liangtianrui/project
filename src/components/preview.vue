@@ -1,18 +1,18 @@
 <template>
-  <div>
+  <div class="preview">
     <div class="list" showCloseButton="true" v-for="(n, index) in imageList" :data-index="index">
       <img @click="open($event)" :src="n.url">
     </div>
     <vue-preview :slides="slide1" @close="handleClose"></vue-preview>
 
-    <img class="preview-img" v-for="(item, index) in list" :src="item.src" height="100">
   </div>
 </template>
 
 <script>
   import fancyBox from 'vue-fancybox';
+
   export default {
-    data () {
+    data() {
       return {
         slide1: [
           {
@@ -32,26 +32,29 @@
             h: 900
           }
         ],
-        list: [{
-          src: 'https://placekitten.com/600/400',
-          w: 600,
-          h: 400
-        }, {
-          src: 'https://placekitten.com/1200/900',
-          w: 1200,
-          h: 900
-        }],
         imageList: [
-          { width: 900, height: 675, url: 'http://ocm0knkb1.bkt.clouddn.com/1-1.jpg' },
-          { width: 601, height: 1024, url: 'http://ocm0knkb1.bkt.clouddn.com/1-2.jpg' },
-          { width: 1024, height: 700, url: 'http://ocm0knkb1.bkt.clouddn.com/1-3.jpg' }
+          {width: 900, height: 675, url: 'http://ocm0knkb1.bkt.clouddn.com/1-1.jpg'},
+          {width: 601, height: 1024, url: 'http://ocm0knkb1.bkt.clouddn.com/1-2.jpg'},
+          {width: 1024, height: 700, url: 'http://ocm0knkb1.bkt.clouddn.com/1-3.jpg'}
         ]
       }
     },
     methods: {
-      open (e) {
+      open(e) {
         fancyBox(e.target, this.imageList);
       }
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  .preview {
+    div,figure {
+      display: inline-block !important;
+      img {
+        width: 200px;
+        display: inline-block !important;
+      }
+    }
+  }
+</style>

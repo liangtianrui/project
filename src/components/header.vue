@@ -1,12 +1,13 @@
 <template>
   <div class="header">
     <ul>
-      <router-link to="/" active-class="active" exact>首页</router-link>
-      <router-link to="/downLoadImg" active-class="active">canvas转换图片下载</router-link>
-      <router-link to="/myCanvas" active-class="active">canvas刮奖</router-link>
-      <router-link to="/swiper" active-class="active">轮播图</router-link>
-
-
+      <router-link to="/" active-class="active" exact>{{$t('message.header.h1')}}</router-link>
+      <router-link to="/downLoadImg" active-class="active">{{$t('message.header.h2')}}</router-link>
+      <router-link to="/myCanvas" active-class="active">{{$t('message.header.h3')}}</router-link>
+      <router-link to="/swiper" active-class="active">{{$t('message.header.h4')}}</router-link>
+      <router-link to="/moveLeft" active-class="active">{{$t('message.header.h5')}}</router-link>
+      <router-link to="/hover" active-class="active">{{$t('message.header.h6')}}</router-link>
+      <router-link to="/preview" active-class="active">{{$t('message.header.h7')}}</router-link>
       <el-dropdown trigger="click" @command="handleCommand">
       <span class="el-dropdown-link">
         {{defaultlanguage}}
@@ -63,9 +64,40 @@
         color: #ffffff;
         text-decoration: none;
         user-select: none;
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          margin: auto;
+          width: 100%;
+          background: aquamarine;
+          height: 2px;
+          transition: transform .5s;
+          transform: scaleX(0);
+          transform-origin: 100% 0;
+        }
+        &:hover::before {
+          transform: scaleX(1);
+          transform-origin: 0 0;
+        }
       }
       .active {
-        color: lightblue;
+        color: aquamarine;
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          margin: auto;
+          width: 100%;
+          background: aquamarine;
+          height: 2px;
+          transition: transform .5s;
+          transform: scaleX(1);
+          transform-origin: 100% 0;
+        }
       }
     }
     .el-dropdown {

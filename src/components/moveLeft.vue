@@ -16,17 +16,7 @@
       }
     },
     mounted() {
-      var u = navigator.userAgent;
-      console.log(u)
-      var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-      var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-      if (isAndroid) {
 
-      } else {
-        location.href = 'https://itunes.apple.com/cn/app/id1318643225'
-      }
-      // alert('是否是Android：'+isAndroid);
-      // alert('是否是iOS：'+isiOS);
       this.move()
     },
     methods: {
@@ -53,7 +43,7 @@
     }
   }
 </script>
-<style lang="css">
+<style lang="css" scoped>
   .pop {
     width: 670px;
     height: 65px;
@@ -75,7 +65,9 @@
     float: left;
     margin-right: 40px;
   }
+</style>
 
+<style lang="css">
   @keyframes pop {
     from {
       transform: translate(0%);
@@ -84,6 +76,4 @@
       transform: translate(-50%);
     }
   }
-
-
 </style>

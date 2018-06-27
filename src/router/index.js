@@ -24,14 +24,6 @@ const router = new Router({
       }
     },
     {
-      path: '/tabs',
-      name: 'tabs',
-      component: pages.tabs,
-      meta: {
-        title: 'canvas下载图片'
-      }
-    },
-    {
       path: '/downloadImg',
       name: 'downloadImg',
       component: pages.downloadImg,
@@ -61,6 +53,14 @@ const router = new Router({
       component: pages.swiper,
       meta: {
         title: '轮播图'
+      }
+    },
+    {
+      path: '/preview',
+      name: 'preview',
+      component: pages.preview,
+      meta: {
+        title: '查看图片'
       }
     },
   ]
